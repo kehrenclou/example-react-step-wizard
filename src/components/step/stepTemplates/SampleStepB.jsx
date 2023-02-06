@@ -12,7 +12,7 @@ export default function SampleStepB({
   stepBody,
   btntext,
   onForwardClick,
-  grid,
+  // grid,
 }) {
   // const handleForwardClick = (SW, nextStep) => {
   //   SW.goToNamedStep({ nextStep });
@@ -23,7 +23,8 @@ export default function SampleStepB({
   return (
     <>
       <StepContainer>
-        <StepHeader grid={grid}>
+        {/* <StepHeader grid={grid}> */}
+        <StepHeader flex>
           <StepHeader.Center>
             <StepHeader.Title title={title}></StepHeader.Title>
             <StepHeader.SubTitle subtitle={subtitle}></StepHeader.SubTitle>

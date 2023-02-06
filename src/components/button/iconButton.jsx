@@ -1,5 +1,5 @@
 import { Button } from "./Button";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { ChevronLeft } from "@styled-icons/fa-solid/ChevronLeft";
 import { ArrowRotateRight } from "@styled-icons/fa-solid/ArrowRotateRight";

@@ -4,6 +4,7 @@ import StepBody from "../stepComponents/StepBody";
 import StepFooter from "../stepComponents/StepFooter";
 import { StepButton } from "../../button/Button";
 import { BackButton } from "../../button/iconButton";
+import styled from "styled-components/macro";
 
 export default function SampleStep({
   SW,
@@ -13,19 +14,15 @@ export default function SampleStep({
   stepBody,
   onBackClick,
   onForwardClick,
-  grid,
+  // grid,
   // children
 }) {
-  // const handleForwardClick = (SW, nextStep) => {
-  //   SW.goToNamedStep({ nextStep });
-  // };
-  // const handleBackClick = (SW, previousStep) => {
-  //   SW.goToNamedStep({ previousStep });
-  // };
+
   return (
-    <>
+    
       <StepContainer>
-        <StepHeader grid={grid}>
+        {/* <StepHeader grid={grid}> */}
+        <StepHeader >
           <StepHeader.Left>
             <BackButton onClick={onBackClick} />
           </StepHeader.Left>
@@ -43,6 +40,6 @@ export default function SampleStep({
           <StepButton onClick={onForwardClick}>{btntext}</StepButton>
         </StepFooter>
       </StepContainer>
-    </>
+    
   );
 }
