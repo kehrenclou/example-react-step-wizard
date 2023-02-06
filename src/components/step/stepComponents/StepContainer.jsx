@@ -3,8 +3,8 @@ import styled from "styled-components";
 const StyledWrapper = styled.div`
   padding: 32px 16px 24px 16px;
   margin: 0 auto;
-  width: 375px;
-  height: 762px;
+  max-width: 375px;
+  /* height: 762px; */
 `;
 const StepContainer = ({ children }) => {
   return (

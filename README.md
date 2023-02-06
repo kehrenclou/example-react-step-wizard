@@ -69,6 +69,6 @@ Please note - this structure must be reviewd before implementing.
 - see StepWizard for all possible probs and details
 
 ##Passing Context
-    -Context is passed currently in the SignUpWizard.jsx - should probably be moved out
+    -Context is passed currently in the SignUpWizard.jsx - should probably be moved out to its own folder
     -
 
