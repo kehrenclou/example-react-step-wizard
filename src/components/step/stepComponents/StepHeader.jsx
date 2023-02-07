@@ -2,15 +2,16 @@ import styled, { css } from "styled-components/macro";
 //reconfig to try to text grid vs flex
 
 const Container = styled.div`
-border: solid 1px yellow;
+  border: solid 1px yellow;
   display: grid;
   /* display: ${(props) => (props.flex ? "flex" : "grid")}; */
   color: var(--bs-white);
   /* grid-template-columns: ${(props) =>
     props.flex ? "" : " 1fr minmax(40px, auto) 1fr"}; */
+  grid-template-columns: 1fr minmax(40px, auto) 1fr;
   grid-template-areas: "left main right";
   margin-bottom: 32px;
-  grid-template-columns: 1fr minmax(40px, auto) 1fr;
+
   ${(props) =>
     props.$flex &&
     css`
@@ -25,8 +26,8 @@ const StyledLeft = styled.div`
 const StyledCenter = styled.div`
   grid-area: main;
   justify-self: center;
-  display: flex;
-  flex-direction:column;
+  /* display: flex;
+  flex-direction: column; */
 `;
 const StyledRight = styled.div`
   grid-area: right;
@@ -40,8 +41,7 @@ const title = ({ title }) => {
   return <h2 className="fs-24px fw-bold m-0">{title}</h2>;
 };
 const subtitle = ({ subtitle }) => {
-  return <h3 className="fs-12px fw-light m-0 border border-danger
-  ">{subtitle}</h3>;
+  return <h3 className="fs-12px fw-light m-0 ">{subtitle}</h3>;
 };
 
 const left = ({ children }) => {
