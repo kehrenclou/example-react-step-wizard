@@ -1,28 +1,46 @@
 import SampleStep from "../../step/stepTemplates/SampleStep";
 import SampleStepB from "../../step/stepTemplates/SampleStepB";
 import SeedStub from "../stepBodyStubs/SeedStub";
-import SignupStub from "../stepBodyStubs/SignupStub";
+
 // import ModalStub from "../stepBodyStubs/ModalStub";
 import SkipStepStub from "../stepBodyStubs/SkipStepStub";
 // import FinishRegStub from "../stepBodyStubs/FinishRegStub";
 import ChoosePeersStub from "../stepBodyStubs/ChoosePeersStub";
-import styled from "styled-components/macro";
 
+import { StepButton } from "../../button/Button";//import for a button
+import { BackButton } from "../../button/iconButton";//import for a button
+import SampleStepTest from "../../step/stepTemplates/SampleStepTest"; //this would be the reusable component
+import SignupStub from "../stepBodyStubs/SignupStub";//this would be the form
+
+
+//teststep
 export function SignUpStep({ SW, onForwardClick, onBackClick }) {
   return (
-    <SampleStep
-      previousStep=""
-      title="Sign Up"
-      subTitle="Step 1/4"
-      btntext="Continue"
+    <SampleStepTest
+      left={<BackButton on Click={onBackClick} />}
+      title="Sign up"
+      subtitle="Step 1/4"
       stepBody={<SignupStub />}
-      onBackClick={onBackClick}
-      onForwardClick={onForwardClick}
-      // grid="three"
-      // onClick={() => SW.goToNamedStep("seedPhrase")}
-    ></SampleStep>
+      footer={<StepButton onClick={onForwardClick}>Continue</StepButton>}
+    ></SampleStepTest>
   );
 }
+
+// export function SignUpStep({ SW, onForwardClick, onBackClick }) {
+//   return (
+//     <SampleStep
+//       previousStep=""
+//       title="Sign Up"
+//       subTitle="Step 1/4"
+//       btntext="Continue"
+//       stepBody={<SignupStub />}
+//       onBackClick={onBackClick}
+//       onForwardClick={onForwardClick}
+//       // grid="three"
+//       // onClick={() => SW.goToNamedStep("seedPhrase")}
+//     ></SampleStep>
+//   );
+// }
 export function SeedStep({ SW, onForwardClick, onBackClick, nextStep }) {
   return (
     <SampleStep
@@ -71,7 +89,6 @@ export function NotifyPeersStep({ SW, onForwardClick, nextStep }) {
       //made center to flex box didn't matter
       onForwardClick={onForwardClick}
       // grid="one"
-    
     ></SampleStep>
   );
 }
