@@ -10,12 +10,14 @@ export default function SampleStepTest({
   title,
   subtitle,
   right,
+  center,
   stepBody,
   footer,
 }) {
   return (
     <StepContainer>
-      <StepHeaderTest
+      {/* //original step */}
+      {/* <StepHeaderTest
         left={left}
         center={
           <>
@@ -24,7 +26,19 @@ export default function SampleStepTest({
           </>
         }
         right={right}
-      ></StepHeaderTest>
+      ></StepHeaderTest> */}
+      {/* //phoenix step */}
+      <StepHeaderTest>
+        <StepHeaderTest.Left>{left}</StepHeaderTest.Left>
+        <StepHeaderTest.Center>
+          {title && <StepHeaderTest.Title title={title} />}
+          {/* instead of passing title, pass center in center pass title component
+          and the notification counter */}
+          {subtitle && <StepHeaderTest.SubTitle subtitle={subtitle} />}
+          {center}
+        </StepHeaderTest.Center>
+        <StepHeaderTest.Right>{right}</StepHeaderTest.Right>
+      </StepHeaderTest>
       <StepBody>{stepBody}</StepBody>
       <StepFooter>{footer}</StepFooter>
     </StepContainer>

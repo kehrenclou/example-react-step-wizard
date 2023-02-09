@@ -4,6 +4,6 @@ const StyledFooter = styled.footer`
   margin-top: 24px;
 `;
 const StepFooter = ({ children }) => {
-  return <StyledFooter w-100>{children}</StyledFooter>;
+  return <StyledFooter className="w-100 d-grid gap-2">{children}</StyledFooter>;
 };
 export default StepFooter;

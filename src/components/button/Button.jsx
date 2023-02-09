@@ -12,6 +12,6 @@ export const StepButton = (props) => {
       size="lg"
       className="btn w-100"
       {...props}
-    ></Button>
+    >{props.text}</Button>
   );
 };

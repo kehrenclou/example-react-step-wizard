@@ -1,12 +1,13 @@
-import React, { useState, useMemo, createContext, useCallback } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import StepWizard from "react-step-wizard";
 import {
-  SignUpStep,
-  SeedStep,
-  SkipStep,
   ChoosePeersStep,
+  FinishRegStep,
+  FooBar,
   NotifyPeersStep,
-  FinishRegStep
+  SeedStep,
+  SignUpStep,
+  SkipStep,
 } from "./steps/SignUpSteps";
 
 import ModalStub from "./stepBodyStubs/ModalStub";
@@ -60,10 +61,9 @@ function SignUpWizard() {
   };
 
   const setInstance = (SW) => updateState({ ...state, SW });
-  const { SW, demo } = state;
+  const { SW } = state;
 
   const handleForwardClick = (nextStep) => {
-    debugger;
     console.log(nextStep);
   };
   const handleBackClick = () => {
@@ -71,6 +71,10 @@ function SignUpWizard() {
   };
   //to customize transitions from animate.css
   let custom = {};
+
+  function goTo(step) {
+    return () => SW.goToNamedStep(step);
+  }
 
   return (
     <WizardContext.Provider value={storeValue}>
@@ -84,9 +88,16 @@ function SignUpWizard() {
         <SignUpStep
           stepName="signup"
           SW={SW}
-          onForwardClick={() => SW.goToNamedStep("seed")}
-          onBackClick={() => SW.goToNamedStep("signup")}
+          onForwardClick={goTo("seed")}
+          onBackClick={() => SW.goToNamedStep("foobar")}
+          //forward={"seed"}
         ></SignUpStep>
+        <FooBar
+          stepName="foobar"
+          SW={SW}
+          onForwardClick={goTo("signup")}
+          onBackClick={() => SW.goToNamedStep("signup")}
+        ></FooBar>
         <SeedStep
           stepName="seed"
           SW={SW}

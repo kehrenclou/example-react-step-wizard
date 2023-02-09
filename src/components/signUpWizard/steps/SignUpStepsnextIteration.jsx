@@ -7,9 +7,7 @@ import ChoosePeersStub from "../stepBodyStubs/ChoosePeersStub";
 
 import { StepButton } from "../../button/Button"; //import for a button
 import { BackButton } from "../../button/iconButton"; //import for a button
-import { StepHeaderTest } from "../../step/stepComponents/StepHeaderTest";
 import SampleStepTest from "../../step/stepTemplates/SampleStepTest"; //this would be the reusable component
-import { Notification } from "../stepBodyStubs/Notification";
 import SignupStub from "../stepBodyStubs/SignupStub"; //this would be the form
 
 //teststep
@@ -20,8 +18,7 @@ export function SignUpStep({ onForwardClick, onBackClick, SW, forward }) {
       title="Sign up"
       subtitle="Step 1/4"
       stepBody={<SignupStub />}
-      footer={<StepButton onClick={onForwardClick} text="Continue" />}
-      //these weren't better ways to pass to wizard
+      // footer={<StepButton onClick={onForwardClick} text="Continue" />}
       // footer={<StepButton onClick={() => onForwardClick("seed")} text="Continue" />}
       //footer={
       //  <StepButton onClick={() => SW.gotoNamedStep(forward)} text="Continue" />
@@ -85,19 +82,19 @@ export function ChoosePeersStep({ onForwardClick, onBackClick }) {
     ></SampleStepTest>
   );
 }
-export function FooBar({ onForwardClick, onBackClick }) {
+export function FooBar({ onForwardClick }) {
   return (
     <SampleStepTest
-      left={<BackButton onClick={onBackClick} />}
-      // title="Wxample to pass something else to center"
-      center={
-        <div className="d-flex gap-1">
-          <StepHeaderTest.Title title="Notification" />
-          <Notification shape="round" text="9" />
-        </div>
-      }
+     // title="We've sent a link to your email to finish your registration process"
+     left={<BackButton onClick={onBackClick} />}
+     center={
+      <div className="d-flex">
+        <StepHeaderTest.Title title="Some text"/>
+        <NotificationCounter/>
+      </div>
+     }
       onForwardClick={onForwardClick}
-      footer={<StepButton onClick={onForwardClick} text="go back to sign up" />}
+      footer={<StepButton onClick={onForwardClick} text="Open email app" />}
     ></SampleStepTest>
   );
 }

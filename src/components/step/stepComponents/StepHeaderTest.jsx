@@ -12,11 +12,11 @@ const Container = styled.div`
   grid-template-areas: "left main right";
   margin-bottom: 32px;
 
-  ${(props) =>
+  /* ${(props) =>
     props.$flex &&
     css`
       display: flex;
-    `}
+    `} */
 `;
 
 const StyledLeft = styled.div`
@@ -69,18 +69,20 @@ export const StepHeaderTest = ({
   title,
   subtitle,
 }) => {
-  return (
-    <Container $flex={flex}>
-      <Left>{left}</Left>
-      <Center>{center}</Center>
-      <Right>{right}</Right>
-    </Container>
-  );
-  // return <Container $grid={grid}>{children}</Container>;
+  //originial?
+  // return (
+  //   <Container $flex={flex}>
+  //     <Left>{left}</Left>
+  //     <Center>{center}</Center>
+  //     <Right>{right}</Right>
+  //   </Container>
+  // );
+  //phoenix
+  return <Container >{children}</Container>;
 };
 
-// StepHeaderTest.Left = left;
-// StepHeaderTest.Center = center;
-// StepHeaderTest.Right = right;
+StepHeaderTest.Left = Left;
+StepHeaderTest.Center = Center;
+StepHeaderTest.Right = Right;
 StepHeaderTest.Title = title;
 StepHeaderTest.SubTitle = subtitle;
